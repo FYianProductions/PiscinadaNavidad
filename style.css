@@ -1,0 +1,164 @@
+/* Estilos generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://www.prensalibre.com/wp-content/uploads/2023/12/arbol-navidad-interior-decorado-muchos-adornos.jpg?quality=52') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    overflow: hidden; /* Elimina las barras de desplazamiento */
+}
+
+/* Barra de progreso con bordes, vacío y estética más navideña */
+#progress-container {
+    width: 80%;
+    background-color: #fff;
+    border-radius: 25px;
+    overflow: hidden;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#progress-bar {
+    width: 0;
+    height: 15px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ff4d4d,
+        #ff4d4d 10px,
+        #ffffff 10px,
+        #ffffff 20px
+    );
+    animation: progress-stripes 16.7s linear forwards;
+}
+
+/* Animación de la barra de progreso */
+@keyframes progress-stripes {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Animación de Papá Noel */
+.santa-animation {
+    position: absolute;
+    top: 50%;
+    left: -300px;
+    width: 300px;
+    animation: santa-fly 10s linear infinite;
+}
+
+.santa {
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Animación del trineo volando (pasar de forma aleatoria) */
+@keyframes santa-fly {
+    0% {
+        left: -300px;
+        top: 10%;
+        transform: rotate(0deg);
+    }
+    25% {
+        left: 20%;
+        top: 40%;
+        transform: rotate(15deg);
+    }
+    50% {
+        left: 50%;
+        top: 70%;
+        transform: rotate(0deg);
+    }
+    75% {
+        left: 80%;
+        top: 40%;
+        transform: rotate(-15deg);
+    }
+    100% {
+        left: 100%;
+        top: 10%;
+        transform: rotate(0deg);
+    }
+}
+
+/* Mensaje final con un cuadro alrededor */
+#message-container {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px solid #f39c12;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    margin: 20px auto;
+    font-size: 1.8rem;
+    color: #2c3e50;
+    display: none; /* Aseguramos que esté oculto inicialmente */
+}
+
+#message p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #e74c3c;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Captcha */
+.captcha-label {
+    font-size: 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.captcha-label input[type="checkbox"] {
+    display: none;
+}
+
+.captcha-label span {
+    display: inline-block;
+    background: #f4f4f4;
+    padding: 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.captcha-label:hover span {
+    background: #e74c3c;
+    color: #fff;
+    border-color: #e74c3c;
+    transform: scale(1.1);
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    #progress-container {
+        width: 90%;
+    }
+
+    #message-container {
+        width: 90%;
+    }
+
+    .santa-animation {
+        width: 200px;
+    }
+}
